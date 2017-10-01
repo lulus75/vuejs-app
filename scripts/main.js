@@ -10,7 +10,6 @@
 			]
 		},
 		methods: {
-
 			addTask: function () {
 				var getLastId = -1;
 				if(this.tasks.length !== 0){
@@ -23,6 +22,10 @@
       })
       this.task = ''
     },
+		removeTask(task) {
+				var pos = this.tasks.indexOf(task);
+				this.tasks.splice(pos, 1);
+		},
 		getUndoneTask() {
 			return this.tasks.filter((task) => !task.done).length;
 		}
