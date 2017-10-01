@@ -38,6 +38,7 @@ getLocaltorageitem();
 		removeTask(task) {
 				var pos = this.tasks.indexOf(task);
 				this.tasks.splice(pos, 1);
+				localStorage.setItem('tasks', JSON.stringify(this.tasks));
 		},
 		getUndoneTask() {
 			return this.tasks.filter((task) => !task.done).length;
