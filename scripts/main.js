@@ -32,8 +32,9 @@ getLocaltorageitem();
         title: this.taskTitle,
         done: false
       })
-      this.task = ''
+			this.taskTitle =""
 			localStorage.setItem('tasks', JSON.stringify(this.tasks));
+			return task
     },
 		removeTask(task) {
 				var pos = this.tasks.indexOf(task);
