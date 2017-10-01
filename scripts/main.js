@@ -9,6 +9,11 @@
 
 			]
 		},
+		filters: {
+		    pluralize: function (n,word) {
+		      return n <= 1 ? n +' '+ word : n + ' '+word+'s'
+		    }
+		  },
 		methods: {
 			addTask: function () {
 				var getLastId = -1;
