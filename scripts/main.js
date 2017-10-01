@@ -1,13 +1,20 @@
 {
+function getLocaltorageitem(){
+	var getLocalStorage = JSON.parse(localStorage.getItem('tasks'));
+	if(getLocalStorage == null){
+		return []
+	}else{
+		return getLocalStorage
+	}
+}
 
+getLocaltorageitem();
 	let vm = new Vue({
 		el : '#app',
 		data: {
 			taskTitle: '',
 			task: {},
-			tasks : [
-
-			]
+			tasks : getLocaltorageitem()
 		},
 		filters: {
 		    pluralize: function (n,word) {
@@ -26,6 +33,7 @@
         done: false
       })
       this.task = ''
+			localStorage.setItem('tasks', JSON.stringify(this.tasks));
     },
 		removeTask(task) {
 				var pos = this.tasks.indexOf(task);
